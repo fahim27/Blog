@@ -19,44 +19,22 @@
                         <div class="body table-responsive">
                             <table class="table table-striped">
                                 <thead>
+
                                 <tr>
                                     <th>#</th>
-                                    <th>FIRST NAME</th>
-                                    <th>LAST NAME</th>
-                                    <th>USERNAME</th>
+                                    <th>Name</th>
+                                    <th>{{getAllCategory}}</th>
+
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Larry</td>
-                                    <td>the Bird</td>
-                                    <td>@twitter</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">4</th>
-                                    <td>Larry</td>
-                                    <td>Jellybean</td>
-                                    <td>@lajelly</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">5</th>
-                                    <td>Larry</td>
-                                    <td>Kikat</td>
-                                    <td>@lakitkat</td>
-                                </tr>
+<!--                                <tr v-if="categoryList" v-for="item,key in categoryList">-->
+<!--                                    <th>{{key+1}}</th>-->
+<!--                                    <th>{{item.name}}</th>-->
+<!--                                    <th>{{item.created_at}}</th>-->
+
+<!--                                </tr>-->
+
                                 </tbody>
                             </table>
                         </div>
@@ -71,7 +49,36 @@
 
 <script>
     export default {
-        name: "Category"
+        name: "Category",
+        data(){
+            return {
+                categoryList:""
+            }
+        },
+        mounted() {
+                // axios.get('get/category')
+                //      .then((resp)=>{
+                //          console.log(resp);
+                //          if (resp.data.success == 'OK') {
+                //             this.categoryList=resp.data.category;
+                //          }
+                //      })
+                //     .catch((error)=>{
+                //
+                //     })
+            this.$store.dispatch('allCategory');
+        },
+        computed:{
+
+            getAllCategory(){
+                return this.$store.getters.getCategory;
+            }
+        },
+        methods:{
+
+
+        }
+
     }
 </script>
 

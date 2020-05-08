@@ -29,7 +29,7 @@ const routes=[
     {
         path: '/category',
         component: Category,
-        name:"category",
+        //name:"category",
         // beforeEnter: (to, from, next) => {
         //
         //     if ( localStorage.getItem('token')){

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,3 +17,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('backend.laouts.app');
 });
+Route::post('store/category','Backend\BasicController@categoryStore');
+Route::get('get/category','Backend\BasicController@getCategory');

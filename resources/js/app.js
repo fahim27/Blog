@@ -9,10 +9,15 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
+import Vuex from 'vuex'
 
+Vue.use(Vuex)
  import router from "./router";
+ import store from "./store";
 
-
+const storeData = new Vuex.Store(
+    store
+)
 import App from "./components/admin/App";
 
 
@@ -29,5 +34,6 @@ const app = new Vue({
 
 
     },
-    router
+    router,
+    store:storeData,
 });
